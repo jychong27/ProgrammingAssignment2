@@ -1,5 +1,10 @@
-## The 'makeCacheMatrix' allow us to create special
-## matrix and stored in it
+## It's always troublesome to compute inverse matrix
+## It does contribute benefits by caching the inverse matrix
+## It's better that we cache the inverse matrix rather than
+## we store and compute each matrix repeat and repeat
+
+## The "makeCacheMatrix" helps to create a special
+## matrix so that it can cache its inverse value
 
 makeCacheMatrix <- function(x = matrix()) {
     i <- NULL
@@ -16,8 +21,11 @@ makeCacheMatrix <- function(x = matrix()) {
          getInverse = getInverse)
 }
 
-## The "cacheSolve" function is used to return inverse matrix
-## back to the function above
+## The "cacheSolve" function is used to compute 
+## inverse matrix of the special matrix obtained from
+## function above. 
+## If it had been calculated, therefore there will be no
+## changes, and the it would return the inverse to the cache
 
 cacheSolve <- function(x, ...) {
     i <- x$getInverse()
